@@ -1,0 +1,71 @@
+---
+title: "DS410_Dataset"
+author: "Totton Hollenbeak"
+date: "2024-04-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Remove all objects from Environment
+remove(list = ls())
+
+#Load packages
+library(tidyverse)
+
+resultphyschem <- read.csv("~/Downloads/resultphyschem.csv")
+
+x <- 
+  resultphyschem %>% 
+  rename("ResultMeasureUnits" = "ResultMeasure.MeasureUnitCode")
+```
+
+```{r}
+write.csv(x, file = "~/Downloads/water_quality_small.csv", row.names = FALSE)
+```
+
+```{r}
+#Remove all objects from Environment
+remove(list = ls())
+
+#Load packages
+library(tidyverse)
+
+# Load in the datasets
+df1 <- read.csv("~/Downloads/resultphyschem_01-06_22.csv")
+df2 <- read.csv("~/Downloads/resultphyschem_06-01_22.csv")
+df3 <- read.csv("~/Downloads/resultphyschem_01-06_23.csv")
+df4 <- read.csv("~/Downloads/resultphyschem_06-12_23.csv")
+```
+
+```{r}
+# Combine the data
+data <- rbind(df1, df2, df3, df4)
+```
+
+```{r}
+unique_data <- unique(data)
+```
+
+```{r}
+nrow(data) == nrow(df1) + nrow(df2) + nrow(df3) + nrow(df4)
+```
+
+```{r}
+# Check whether there are any duplicates in the combined dataset
+nrow(unique_data) == nrow(df1) + nrow(df2) + nrow(df3) + nrow(df4)
+```
+
+```{r}
+y <-
+  data %>% 
+  rename("ResultMeasureUnits" = "ResultMeasure.MeasureUnitCode")
+```
+
+```{r}
+write.csv(y, file = "~/Downloads/water_quality_large.csv", row.names = FALSE)
+```
+
