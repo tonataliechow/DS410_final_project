@@ -19,7 +19,7 @@ export PYSPARK_DRIVER_PYTHON=python3
 # Run PySpark
 # Record the start time
 start_time=$(date +%s)
-spark-submit --deploy-mode client Isolated_DS410_Project_Cluster.py
+spark-submit --deploy-mode client FINAL_DS410_Project_Cluster.py
 
 #python Lab11.py
 
