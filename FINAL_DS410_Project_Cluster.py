@@ -320,9 +320,8 @@ ml_df = pd.DataFrame(columns = ["Model", "RMSE", "R2", "Method"])
 
 # In[75]:
 
-
-MAP_MAKER_API_KEY = "6618272817df1758841685bay0ce314"
-
+# Obtain your own API key here https://geocode.maps.co/
+MAP_MAKER_API_KEY = ""
 # Latitude, longitude retrieval via NLDI API with USGS Code
 ## Note: No request limitations
 def retrieve_coordinates(usgs_code):
